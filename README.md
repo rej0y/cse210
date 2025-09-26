@@ -1,4 +1,4 @@
-# cse210-student-template
+# cse210-files
 This is the starter code.
 
 This repository contains the starter code for many different projects. They are arranged as follows:
