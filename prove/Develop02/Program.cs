@@ -8,7 +8,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        while (Journal.journalRunning)
+        while (Journal._journalRunning)
         {
             Journal.DecideOption(Journal.MenuPrompt());
         }

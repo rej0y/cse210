@@ -4,8 +4,8 @@ using System.Text.Json;
 class Journal
 {
 
-    public static List<Entry> entries = new();
-    public static bool journalRunning = true;
+    public static List<Entry> _entries = new();
+    public static bool _journalRunning = true;
 
     public static int MenuPrompt()
     {
@@ -47,7 +47,7 @@ class Journal
                 newEntry._dateTime = DateTime.Now;
 
                 // Add the new entry to the list.
-                entries.Add(newEntry);
+                _entries.Add(newEntry);
 
                 break;
 
@@ -57,7 +57,7 @@ class Journal
                 Console.WriteLine();
 
                 // Output every entries.
-                foreach (Entry entry in entries)
+                foreach (Entry entry in _entries)
                 {
                     Console.WriteLine($"Date: {entry._dateTime:d} - Prompt: {entry._prompt}");
                     Console.WriteLine(entry._content);
@@ -93,7 +93,7 @@ class Journal
                 // ChatGPT, personal communication, October 11, 2025
                 var readJsonOptions = new JsonSerializerOptions { IncludeFields = true };
                 string readJson = File.ReadAllText(readFilename);
-                entries = JsonSerializer.Deserialize<List<Entry>>(readJson, readJsonOptions) ?? new List<Entry>();
+                _entries = JsonSerializer.Deserialize<List<Entry>>(readJson, readJsonOptions) ?? new List<Entry>();
                 Console.WriteLine("Journal loaded.");
 
 
@@ -117,7 +117,7 @@ class Journal
                 // Store the entries into the JSON file.
                 // ChatGPT, personal communication, October 11, 2025
                 var writeJsonOptions = new JsonSerializerOptions { WriteIndented = true, IncludeFields = true };
-                string writeJson = JsonSerializer.Serialize(entries, writeJsonOptions);
+                string writeJson = JsonSerializer.Serialize(_entries, writeJsonOptions);
                 File.WriteAllText(writeFilename, writeJson);
                 Console.WriteLine("Journal saved.");
 
@@ -126,7 +126,7 @@ class Journal
             case 5:
 
                 // Set the "journalRunning" to false to exit the program loop.
-                journalRunning = false;
+                _journalRunning = false;
 
                 break;
 
