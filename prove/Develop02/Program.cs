@@ -1,3 +1,11 @@
+// Exceeding Requirements:
+
+// I prompt the user for the journal name to save the file and save it in a
+// JSON format; this will make the program more user-friendly and make sure the
+// data is more structured. I also did a lot of crash prevention to make the
+// program more stable.
+
+
 using System;
 
 class Program
