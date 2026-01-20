@@ -1,3 +1,10 @@
+// Exceeding Requirements:
+
+// I prompt the user for the journal name to save the file and save it in a
+// JSON format; this will make the program more user-friendly and make sure the
+// data is more structured. I also did a lot of crash prevention to make the
+// program more stable.
+
 using System.Text.Json;
 
 class Journal
@@ -32,7 +39,7 @@ class Journal
 
         if (File.Exists(dataPath))
         {
-            _entries = JsonSerializer.Deserialize<List<Entry>>(File.ReadAllText(dataPath));
+            _entries = JsonSerializer.Deserialize<List<Entry>>(File.ReadAllText(dataPath)) ?? new List<Entry>();
             Console.WriteLine($"Journal loaded successfully!");
         }
         else
