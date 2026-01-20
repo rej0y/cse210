@@ -11,6 +11,7 @@
       dotnet = pkgs.dotnetCorePackages.combinePackages (with pkgs.dotnetCorePackages; [
         sdk_10_0-bin
         sdk_9_0-bin
+        sdk_8_0-bin
       ]);
     in
     {
