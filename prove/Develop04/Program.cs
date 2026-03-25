@@ -29,37 +29,25 @@ class Program
                 case "1":
                     Console.Clear();
                     BreathingActivity breathingActivity = new BreathingActivity();
-                    breathingActivity.Start();
-                    breathingActivity.Transition();
-                    breathingActivity.Run();
-                    breathingActivity.End();
+                    breathingActivity.Execute();
                     Console.Clear();
                     break;
                 case "2":
                     Console.Clear();
                     BodyScanActivity bodyScanActivity = new BodyScanActivity();
-                    bodyScanActivity.Start();
-                    bodyScanActivity.Transition();
-                    bodyScanActivity.Run();
-                    bodyScanActivity.End();
+                    bodyScanActivity.Execute();
                     Console.Clear();
                     break;
                 case "3":
                     Console.Clear();
                     ReflectingActivity reflectingActivity = new ReflectingActivity();
-                    reflectingActivity.Start();
-                    reflectingActivity.Transition();
-                    reflectingActivity.Run();
-                    reflectingActivity.End();
+                    reflectingActivity.Execute();
                     Console.Clear();
                     break;
                 case "4":
                     Console.Clear();
                     ListingActivity listingActivity = new ListingActivity();
-                    listingActivity.Start();
-                    listingActivity.Transition();
-                    listingActivity.Run();
-                    listingActivity.End();
+                    listingActivity.Execute();
                     Console.Clear();
                     break;
                 case "5":

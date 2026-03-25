@@ -1,6 +1,6 @@
 class BodyScanActivity : Activity
 {
-    private double _promptTime = 5;
+    private int _promptTime = 5;
     private List<string> _prompts = new List<string>
     ([
         "Focus on your forehead...",
@@ -12,23 +12,24 @@ class BodyScanActivity : Activity
         "Relax your legs...",
         "Focus on your feet...",
     ]);
-    public BodyScanActivity()
-    {
-        _name = "Body Scan";
-        _description = "This activity will help you relax by guiding your attention through different parts of your body and helping you notice and release tension.";
-    }
-    public BodyScanActivity(double promptTime) : this()
+    public BodyScanActivity() : base
+    (
+        "Body Scan",
+        "This activity will help you relax by guiding your attention through different parts of your body and helping you notice and release tension."
+    )
+    { }
+    public BodyScanActivity(int promptTime) : this()
     {
         _promptTime = promptTime;
     }
-    public void Run()
+    public override void Run()
     {
         Console.WriteLine("Close your eyes if you feel comfortable.");
-        new Spinner().Display();
+        Spinner();
         Console.WriteLine();
 
         Console.WriteLine("Take a slow breath before you begin.");
-        new Spinner(15000).Display();
+        Spinner(15000);
         Console.WriteLine();
 
         int index = 0;
@@ -36,14 +37,14 @@ class BodyScanActivity : Activity
         while (DateTime.Now < endTime)
         {
             Console.Write(_prompts[index] + " ");
-            new Timer(_promptTime).Run();
+            Timer(_promptTime);
             Console.WriteLine("\n");
 
             index = (index + 1) % _prompts.Count;
         }
 
         Console.WriteLine("Take one final deep breath.");
-        new Spinner(15000).Display();
+        Spinner(15000);
         Console.WriteLine();
     }
 }

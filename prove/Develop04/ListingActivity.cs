@@ -8,29 +8,35 @@ class ListingActivity : Activity
         "When have you felt the Holy Ghost this month?",
         "Who are some of your personal heroes?",
     ]);
-    public ListingActivity()
-    {
-        _name = "Listing";
-        _description = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.";
-    }
-    public void Run()
+    public ListingActivity() : base
+    (
+        "Listing",
+        "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area."
+    )
+    { }
+    public override void Run()
     {
         string prompt = _prompts[Random.Shared.Next(_prompts.Count)];
+
+        List<string> userList = new List<string>();
 
         Console.WriteLine("List as many responses you can to the following prompt:");
         Console.WriteLine();
         Console.WriteLine($" --- {prompt} ---");
         Console.WriteLine();
         Console.Write("You may begin in: ");
-        new Timer(5).Run();
+        Timer(5);
         Console.WriteLine("\n");
 
         DateTime endTime = DateTime.Now.AddSeconds(_time);
         while (DateTime.Now < endTime)
         {
             Console.Write("> ");
-            Console.ReadLine();
+            userList.Add(Console.ReadLine());
         }
+        Console.WriteLine();
+
+        Console.WriteLine($"You listed {userList.Count} items!");
         Console.WriteLine();
     }
 }

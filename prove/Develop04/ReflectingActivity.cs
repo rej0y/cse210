@@ -19,11 +19,12 @@ class ReflectingActivity : Activity
         "What did you learn about yourself through this experience?",
         "How can you keep this experience in mind in the future?",
     ]);
-    public ReflectingActivity()
-    {
-        _name = "Reflecting";
-        _description = "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
-    }
+    public ReflectingActivity() : base
+    (
+        "Reflecting",
+        "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life."
+    )
+    { }
     private void DisplayRandomPrompt()
     {
         string prompt = _prompts[Random.Shared.Next(_prompts.Count)];
@@ -36,7 +37,7 @@ class ReflectingActivity : Activity
         Console.ReadLine();
         Console.WriteLine("Now ponder on each of the following questions as they related to this experience.");
         Console.Write("You may begin in: ");
-        new Timer(5).Run();
+        Timer(5);
         Console.Clear();
     }
     private void DisplayQuestions()
@@ -46,12 +47,12 @@ class ReflectingActivity : Activity
         {
             string question = _questions[Random.Shared.Next(_questions.Count)];
             Console.Write($"> {question} ");
-            new Spinner(10000).Display();
+            Spinner(10000);
             Console.WriteLine();
         }
         Console.WriteLine();
     }
-    public void Run()
+    public override void Run()
     {
         DisplayRandomPrompt();
         DisplayQuestions();
