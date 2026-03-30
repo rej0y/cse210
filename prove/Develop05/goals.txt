@@ -1,0 +1,4 @@
+280
+SimpleGoal:Haha,hahahahahahahahaha,20,True
+EternalGoal:yeah,yeeeeeeeeeeeeeah,40
+ChecklistGoal:yo,yoooooooooooooooooooooooo,60,250,5,3
