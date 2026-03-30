@@ -2,20 +2,39 @@ class GoalManager
 {
     private List<Goal> _goals;
     private int _score;
+
+    /// <summary>
+    /// Goal manager constructor, accept a list of goals and the total score.
+    /// </summary>
+    /// <param name="goals">A list of goals, default to null</param>
+    /// <param name="score">The total score, default to 0</param>
     public GoalManager(List<Goal> goals = null, int score = 0)
     {
         _goals = goals ?? new List<Goal>();
         _score = score;
     }
+
+    /// <summary>
+    /// Get the level according to the total score.
+    /// </summary>
+    /// <returns>An integer that represent the level.</returns>
     public int GetLevel()
     {
         return _score / 1000 + 1;
     }
+
+    /// <summary>
+    /// Display the player info: the total score and the current level.
+    /// </summary>
     public void DisplayPlayerInfo()
     {
         Console.WriteLine($"You have {_score} points.");
         Console.WriteLine($"You are in Level {GetLevel()}.");
     }
+
+    /// <summary>
+    /// List all of the goals, loop through the goals list and list them.
+    /// </summary>
     public void ListGoalDetails()
     {
         Console.WriteLine("The goals are:");
@@ -24,6 +43,10 @@ class GoalManager
             Console.WriteLine($"  {i + 1}: {_goals[i].GetDetailsString()}");
         }
     }
+
+    /// <summary>
+    /// The RecordEvent() for the goal manager, list the goals, prompt the user to record it, output the earned points and add it to the total score.
+    /// </summary>
     public void RecordEvent()
     {
         if (_goals.Count == 0)
@@ -70,6 +93,10 @@ class GoalManager
         _score += points;
         Console.WriteLine($"You now have {_score} points.");
     }
+
+    /// <summary>
+    /// SaveGoals() prompt the user for a file name and uses GetStringRepresentation() to save them into a file.
+    /// </summary>
     public void SaveGoals()
     {
         Console.Write("What is the filename for the goal file? ");
@@ -85,6 +112,10 @@ class GoalManager
             }
         }
     }
+
+    /// <summary>
+    /// LoadGoals() prompt the user for a file name, parse each line and load each goal to the goals list.
+    /// </summary>
     public void LoadGoals()
     {
         Console.Write("What is the filename for the goal file? ");
@@ -153,6 +184,10 @@ class GoalManager
             Console.WriteLine("The file that you specify does not exist; please try again.");
         }
     }
+
+    /// <summary>
+    /// CreateGoal() output all types of the goals, prompt the use to create certain goal, asks for the name, description and the points, in addition to other information according to the goal type, and add that goal to the goals list.
+    /// </summary>
     public void CreateGoal()
     {
         Console.WriteLine("The types of Goals are:");
